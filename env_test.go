@@ -3,9 +3,10 @@ package main
 import (
 	"fmt"
 	"os"
+	"testing"
 )
 
-func main() {
+func TestEnv(t *testing.T) {
 	// 查询正在生效的环境变量
 	s1 := os.Environ()
 	fmt.Println(s1)
@@ -16,8 +17,8 @@ func main() {
 	k8s, isExist := os.LookupEnv("K8S_HOME")
 	fmt.Printf("K8S_HOME: %t   -- %s  \n", isExist, k8s)
 	// 获取一个变量的值
-	k8s_GET := os.Getenv("K8S_HOME")
-	fmt.Printf("K8S_HOME: %s \n", k8s_GET)
+	k8sGet := os.Getenv("K8S_HOME")
+	fmt.Printf("K8S_HOME: %s \n", k8sGet)
 
 	// 取消环境变量
 	os.Unsetenv("K8S_HOME")

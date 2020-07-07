@@ -1,12 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"os"
+	"testing"
 )
 
 // file samples
-func main() {
+func TestFile(t *testing.T) {
 	// os file
 	file, _ := os.Open("/Users/niaoshuai")
 	defer file.Close()
