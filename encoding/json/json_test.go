@@ -25,9 +25,9 @@ func TestEncode(t *testing.T) {
 }
 func TestDecode(t *testing.T) {
 	var jsonBlob = []byte(`[
-	{"name":"niaoshuai","age":29},
-	{"name":"erkengzi","age":23}
-]`)
+								{"name":"niaoshuai","age":29},
+								{"name":"erkengzi","age":23}
+							]`)
 	var users []User
 	err := json.Unmarshal(jsonBlob, &users)
 	if err != nil {
