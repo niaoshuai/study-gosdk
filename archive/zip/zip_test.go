@@ -3,7 +3,6 @@ package zip
 import (
 	"archive/zip"
 	"io/ioutil"
-	"log"
 	"os"
 	"testing"
 )
@@ -67,23 +66,23 @@ func TestReadZip(t *testing.T) {
 	// 读取 zip
 	r, err := zip.OpenReader("testdata/tmp.zip")
 	if err != nil {
-		log.Fatal(err)
+		t.Fatal(err)
 	}
 	defer r.Close()
 
 	// 输出文件内容
 	for _, f := range r.File {
-		log.Printf("文件名称是:  %s \n", f.Name)
+		t.Logf("文件名称是:  %s \n", f.Name)
 		rc, err := f.Open()
 		if err != nil {
-			log.Fatal(err)
+			t.Fatal(err)
 		}
 		fd, err := ioutil.ReadAll(rc)
 		if err != nil {
-			log.Fatal(err)
+			t.Fatal(err)
 		}
 		// 强制关闭
 		rc.Close()
-		log.Println(string(fd))
+		t.Log(string(fd))
 	}
 }
