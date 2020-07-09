@@ -22,11 +22,11 @@ func TestEncode(t *testing.T) {
 
 func TestDecode(t *testing.T) {
 	var messageData = []byte(`
------BEGIN MESSAGE-----
-Animal: Gopher
-
-dGVzdA==
------END MESSAGE-----`)
+							-----BEGIN MESSAGE-----
+							Animal: Gopher
+							
+							dGVzdA==
+							-----END MESSAGE-----`)
 	block, _ := pem.Decode(messageData)
 	if block == nil || block.Type != "MESSAGE" {
 		t.Fatal("failed to decode PEM block containing message")
